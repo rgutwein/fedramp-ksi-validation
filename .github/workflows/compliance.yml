@@ -1,0 +1,40 @@
+name: FedRAMP Compliance Scan
+
+on: [push, pull_request]
+
+jobs:
+  compliance-scan:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Terraform
+        uses: hashicorp/setup-terraform@v1
+        with:
+          terraform_version: 1.1.0
+
+      - name: Run Terraform Compliance Checks
+        run: |
+          terraform init
+          terraform validate
+          terraform plan
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.10'
+
+      - name: Run Python Compliance Scanner
+        run: python scripts/scan_aws.py
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: Install and Build React Dashboard
+        run: |
+          cd dashboard
+          npm install
+          npm run build

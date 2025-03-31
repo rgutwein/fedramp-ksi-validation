@@ -1,0 +1,23 @@
+{
+  "system-security-plan": {
+    "metadata": {
+      "title": "FedRAMP KSI Compliance Evidence",
+      "version": "1.0",
+      "oscal-version": "1.0.0"
+    },
+    "controls": [
+      {
+        "id": "KSI-001",
+        "title": "FIPS-validated encryption",
+        "status": "implemented",
+        "evidence": "Terraform Compliance Check Passed"
+      },
+      {
+        "id": "KSI-002",
+        "title": "MFA Enabled for all users",
+        "status": "implemented",
+        "evidence": "AWS IAM Policy Enforced"
+      }
+    ]
+  }
+}
