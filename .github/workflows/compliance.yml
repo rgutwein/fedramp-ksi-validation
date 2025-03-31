@@ -5,6 +5,11 @@ on: [push, pull_request]
 jobs:
   compliance-scan:
     runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        env: [aws, azure, gcp]
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
@@ -14,19 +19,33 @@ jobs:
         with:
           terraform_version: 1.1.0
 
-      - name: Run Terraform Compliance Checks
+      - name: Run Terraform Compliance Checks - ${{ matrix.env }}
+        working-directory: terraform/${{ matrix.env }}
         run: |
-          terraform init
-          terraform validate
-          terraform plan
+          if ls *.tf 1> /dev/null 2>&1; then
+            terraform init
+            terraform validate
+            terraform plan
+          else
+            echo "No Terraform files found in terraform/${{ matrix.env }}, skipping."
+          fi
 
       - name: Set up Python
         uses: actions/setup-python@v2
         with:
           python-version: '3.10'
 
-      - name: Run Python Compliance Scanner
+      - name: Run AWS Python Compliance Scanner
+        if: matrix.env == 'aws'
         run: python scripts/scan_aws.py
+
+      - name: Run Azure Python Compliance Scanner
+        if: matrix.env == 'azure'
+        run: python scripts/scan_azure.py
+
+      - name: Run GCP Python Compliance Scanner
+        if: matrix.env == 'gcp'
+        run: python scripts/scan_gcp.py
 
       - name: Set up Node.js
         uses: actions/setup-node@v3
