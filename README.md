@@ -1,79 +1,77 @@
-# FedRAMP KSI Validation Toolkit
+# FedRAMP KSI Validation Dashboard
+
+A comprehensive dashboard for validating Key Security Indicators (KSIs) against NIST 800-53 controls for FedRAMP compliance across multiple cloud service providers.
 
 ## Overview
-This repository provides an **open-source compliance automation framework** for validating **Key Security Indicators (KSIs)** as per **FedRAMP 20x**. The goal is to automate security assessments, enforce technical controls, and provide machine-readable evidence for continuous compliance.
 
-## 🚀 Features
-- **Automated Security Checks** using **Terraform, OPA, and Python scripts**
-- **Policy-as-Code** enforcement with **Open Policy Agent (OPA)**
-- **Continuous Compliance Scanning** in **CI/CD Pipelines**
-- **OSCAL JSON & YAML Reporting** for machine-readable security evidence
-- **Multi-Cloud Support** (AWS, Azure, GCP - More coming soon)
+This dashboard helps organizations validate their FedRAMP compliance by tracking Key Security Indicators (KSIs) across AWS, Azure, and GCP cloud environments. It maps KSIs to NIST 800-53 controls and provides a clear visualization of compliance status.
 
-## 📂 Repository Structure
+## Features
+
+- **Multi-Cloud Support**: Monitor compliance across AWS, Azure, and GCP
+- **KSI Validation**: Validate specific security indicators mapped to FedRAMP controls
+- **NIST 800-53 Control Mapping**: View how KSIs map to NIST controls
+- **Compliance Dashboard**: Visualize overall compliance status with interactive charts
+- **Control Catalog**: Browse and search through NIST controls and KSIs
+- **Evidence Management**: Track implementation evidence for each KSI
+
+## Screenshots
+
+### Dashboard
+![Dashboard](https://github.com/rgutwein/fedramp-ksi-validation/raw/main/screenshots/dashboard.png)
+*FedRAMP Controls Validation Dashboard showing compliance status across cloud providers*
+
+### KSI Validation
+![KSI Validation](https://github.com/rgutwein/fedramp-ksi-validation/raw/main/screenshots/ksi-validation.png)
+*KSI Validation page showing KSIs mapped to NIST 800-53 controls with implementation status*
+
+### Control Catalog
+![Control Catalog](https://github.com/rgutwein/fedramp-ksi-validation/raw/main/screenshots/control-catalog.png)
+*Control Catalog page for browsing NIST 800-53 controls and KSIs*
+
+## Installation
+
+```bash
+# Clone the repository
+git clone https://github.com/rgutwein/fedramp-ksi-validation.git
+cd fedramp-ksi-validation
+
+# Install dependencies
+cd dashboard
+npm install
+
+# Start the application
+npm start
+```
+
+## Usage
+
+1. **Dashboard**: View overall compliance status across cloud providers
+2. **Cloud Providers**: Drill down into specific providers (AWS, Azure, GCP)
+3. **Control Catalog**: Browse all NIST 800-53 controls and KSIs
+4. **KSI Validation**: Validate KSIs against NIST controls and review evidence
+
+## Project Structure
+
 ```
 fedramp-ksi-validation/
-│── .github/                 # CI/CD workflows for automation
-│── configs/                 # Configuration files for KSIs and policies
-│   ├── ksis.yaml            # Definition of FedRAMP 20x Key Security Indicators
-│   ├── policies.rego        # OPA policies for enforcing security controls
-│── terraform/               # Terraform modules for compliance validation
-│   ├── aws/                 # AWS-specific compliance checks
-│   ├── azure/               # Azure-specific compliance checks
-│   ├── gcp/                 # GCP-specific compliance checks
-│── oscal/                   # OSCAL machine-readable format for compliance evidence
-│   ├── FedRAMP-KSI.json     # JSON representation of compliance checks
-│── scripts/                 # Automation scripts for scanning environments
-│── docs/                    # Documentation and guides
-│── LICENSE                  # Open-source licensing information
-│── README.md                # Project overview and setup guide
+├── dashboard/               # React frontend application
+│   ├── src/
+│   │   ├── components/      # Reusable UI components
+│   │   ├── pages/           # Page components
+│   │   ├── services/        # API and data services
+│   │   └── App.js           # Main application component
+├── scripts/                 # Backend scripts for cloud scanning
+└── terraform/               # IaC templates for deploying validation resources
 ```
 
-## 🔧 Getting Started
+## Contributing
 
-### Prerequisites
-- [Terraform](https://developer.hashicorp.com/terraform/downloads)
-- [AWS CLI](https://aws.amazon.com/cli/)
-- [Python](https://www.python.org/downloads/)
-- [OPA (Open Policy Agent)](https://www.openpolicyagent.org/)
+Contributions are welcome! Please feel free to submit a Pull Request.
 
-### Installation
-Clone this repository:
-```sh
-git clone https://github.com/your-org/fedramp-ksi-validation.git
-cd fedramp-ksi-validation
-```
+## License
 
-### Running Terraform Compliance Checks
-```sh
-cd terraform/aws
-terraform init
-terraform validate
-terraform plan
-```
-
-### Running Python Scanner
-```sh
-python scripts/scan_aws.py
-```
-
-### Running OPA Policy Checks
-```sh
-opa eval --data configs/policies.rego --input configs/ksis.yaml "data.compliance.allow"
-```
-
-## 📊 OSCAL Compliance Reporting
-Generate machine-readable security evidence:
-```sh
-cat oscal/FedRAMP-KSI.json
-```
-
-## 📌 Contributing
-We welcome contributions! Feel free to submit issues or pull requests.
-
-## 📜 License
-This project is licensed under the **MIT License**.
+This project is licensed under the MIT License - see the LICENSE file for details.
 
 ---
 💡 **Join the FedRAMP 20x movement**: Help us shape the future of security automation!
-# fedramp-ksi-validation
