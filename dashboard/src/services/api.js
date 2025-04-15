@@ -358,5 +358,7 @@ export const getSystemDetails = async (systemId) => {
 export {
   getComplianceControls,
   getCloudProviderStatus,
-  processComplianceResults
+  validateKsiImplementation,
+  getNistControls,
+  getMockComplianceData
 }; 
