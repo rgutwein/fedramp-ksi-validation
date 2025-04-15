@@ -18,16 +18,20 @@ This dashboard helps organizations validate their FedRAMP compliance by tracking
 ## Screenshots
 
 ### Dashboard
-![Dashboard](![image](https://github.com/user-attachments/assets/a90d715a-887e-4e56-a7cc-e9e00415ef6a)
-)
+![dashboard](https://github.com/user-attachments/assets/d107c334-8df7-4b3a-9812-81894b69c9b3)
+
 *FedRAMP Controls Validation Dashboard showing compliance status across cloud providers*
 
 ### KSI Validation
-![KSI Validation](https://github.com/rgutwein/fedramp-ksi-validation/raw/main/screenshots/ksi-validation.png)
+![ksi-validation](https://github.com/user-attachments/assets/b9bee384-b34c-44b3-b408-4dd9acf7891d)
+
 *KSI Validation page showing KSIs mapped to NIST 800-53 controls with implementation status*
 
 ### Control Catalog
-![Control Catalog](https://github.com/rgutwein/fedramp-ksi-validation/raw/main/screenshots/control-catalog.png)
+![control-catalog](https://github.com/user-attachments/assets/3ac675f2-6e67-4634-a10d-d13e375dba93)
+
+![control-catalog-1](https://github.com/user-attachments/assets/0dd6705e-2658-43a5-b5c6-12681efb844d)
+
 *Control Catalog page for browsing NIST 800-53 controls and KSIs*
 
 ## Installation
