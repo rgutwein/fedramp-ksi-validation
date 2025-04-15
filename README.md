@@ -18,7 +18,8 @@ This dashboard helps organizations validate their FedRAMP compliance by tracking
 ## Screenshots
 
 ### Dashboard
-![Dashboard](https://github.com/rgutwein/fedramp-ksi-validation/raw/main/screenshots/dashboard.png)
+![Dashboard](![image](https://github.com/user-attachments/assets/a90d715a-887e-4e56-a7cc-e9e00415ef6a)
+)
 *FedRAMP Controls Validation Dashboard showing compliance status across cloud providers*
 
 ### KSI Validation
